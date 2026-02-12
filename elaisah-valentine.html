@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>for u &lt;3</title>
+    <style>
+        /* prevents weird scrolling and keeps text lowercase */
+        body {
+            background-color: #ffe6ea;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            width: 100vw;
+            font-family: sans-serif;
+            overflow: hidden;
+            text-transform: lowercase;
+            touch-action: manipulation; 
+        }
+
+        /* responsive white card */
+        #card {
+            background: white;
+            width: 85%;
+            max-width: 500px;
+            padding: 50px 20px;
+            border-radius: 30px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            text-align: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        h1 {
+            color: #d63384;
+            font-size: 1.8rem;
+            margin-bottom: 40px;
+            padding: 0 10px;
+        }
+
+        /* container for buttons */
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            min-height: 100px;
+            flex-wrap: wrap; /* helps on tiny screens */
+        }
+
+        /* big, tappable buttons */
+        .btn {
+            padding: 15px 35px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 60px;
+            cursor: pointer;
+            font-weight: bold;
+            display: inline-block;
+            transition: transform 0.1s active;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        #yes-btn {
+            background-color: #20c997;
+            color: white;
+        }
+
+        #no-btn {
+            background-color: #dc3545;
+            color: white;
+            /* very slow glide speed */
+            transition: left 2.5s ease-out, top 2.5s ease-out; 
+            position: relative; 
+            z-index: 100;
+        }
+
+        #reset-btn {
+            background-color: #6c757d;
+            color: white;
+            margin-top: 20px;
+        }
+
+        .hidden { display: none; }
+
+        .from-don {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            color: #d63384;
+            font-weight: bold;
+            font-size: 0.9rem;
+            z-index: 5;
+        }
+
+        .emoji { font-size: 4rem; margin-bottom: 20px; display: block; }
+
+        /* small screen adjustments */
+        @media (max-width: 380px) {
+            h1 { font-size: 1.4rem; }
+            .btn { padding: 12px 25px; font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="card">
+        <div id="q-section">
+            <h1>elaisah will you be my valentine?</h1>
+            <div class="btn-container">
+                <button id="yes-btn" class="btn" onclick="showPage('yay')">yes</button>
+                <button id="no-btn" class="btn" onmouseover="moveNo()" onclick="showPage('aww')">no</button>
+            </div>
+        </div>
+
+        <div id="yay-section" class="hidden">
+            <span class="emoji">❤️</span>
+            <h1>thaaaaank you!!!!</h1>
+        </div>
+
+        <div id="aww-section" class="hidden">
+            <span class="emoji">💔</span>
+            <h1>aww i was hoping you would say yes</h1>
+            <button id="reset-btn" class="btn" onclick="resetPage()">one more?</button>
+        </div>
+    </div>
+
+    <div class="from-don">(from don &lt;3)</div>
+
+    <script>
+        const noBtn = document.getElementById('no-btn');
+        let hasMoved = false;
+
+        function moveNo() {
+            // on first move, convert to fixed so it can escape the box
+            if (!hasMoved) {
+                const rect = noBtn.getBoundingClientRect();
+                noBtn.style.left = rect.left + 'px';
+                noBtn.style.top = rect.top + 'px';
+                noBtn.style.position = 'fixed';
+                hasMoved = true;
+            }
+
+            // random screen coordinates
+            const padding = 60;
+            const maxX = window.innerWidth - noBtn.offsetWidth - padding;
+            const maxY = window.innerHeight - noBtn.offsetHeight - padding;
+
+            const randomX = Math.max(padding, Math.random() * maxX);
+            const randomY = Math.max(padding, Math.random() * maxY);
+
+            noBtn.style.left = randomX + 'px';
+            noBtn.style.top = randomY + 'px';
+        }
+
+        function showPage(pageId) {
+            // hide everything first
+            document.getElementById('q-section').classList.add('hidden');
+            document.getElementById('yay-section').classList.add('hidden');
+            document.getElementById('aww-section').classList.add('hidden');
+            
+            // show the result
+            document.getElementById(pageId + '-section').classList.remove('hidden');
+            noBtn.style.display = 'none';
+        }
+
+        function resetPage() {
+            hasMoved = false;
+            document.getElementById('aww-section').classList.add('hidden');
+            document.getElementById('q-section').classList.remove('hidden');
+            
+            // reset button to original state
+            noBtn.style.display = 'inline-block';
+            noBtn.style.position = 'relative';
+            noBtn.style.left = 'auto';
+            noBtn.style.top = 'auto';
+        }
+    </script>
+</body>
+</html>
