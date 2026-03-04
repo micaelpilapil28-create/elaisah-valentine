@@ -1,241 +1,177 @@
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
-    <title>for u &lt;3</title>
-
+    <title>for elaisah</title>
     <style>
+        /* basic setup - making sure the background is pink everywhere */
+        html, body {
+            background-color: #ffe6ea;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            font-family: 'Arial', sans-serif;
+            text-transform: lowercase;
+            color: #444444;
+        }
 
-        body { background-color: #ffe6ea; margin: 0; padding: 0; display: flex; justify-content: center; align-items: center; height: 100vh; width: 100vw; font-family: sans-serif; overflow: hidden; text-transform: lowercase; touch-action: manipulation; }
+        /* the main container that holds everything in a line */
+        .main-wrapper {
+            display: block;
+            width: 100%;
+            text-align: center;
+        }
 
-        #card { background: white; width: 85%; max-width: 500px; padding: 50px 20px; border-radius: 30px; box-shadow: 0 15px 40px rgba(0,0,0,0.1); text-align: center; position: relative; z-index: 10; }
+        /* the letter box */
+        .letter-box {
+            background-color: #ffffff;
+            width: 85%;
+            max-width: 450px;
+            margin: 50px auto;
+            padding: 40px 25px;
+            border-radius: 20px;
+            box-shadow: 0px 10px 20px rgba(0,0,0,0.05);
+            line-height: 1.8;
+            text-align: left;
+            font-size: 17px;
+        }
 
-        h1 { color: #d63384; font-size: 1.8rem; margin-bottom: 40px; padding: 0 10px; }
+        /* the long gap to make her scroll */
+        .spacer {
+            height: 900px;
+            width: 100%;
+            display: block;
+        }
 
-        .btn-container { display: flex; justify-content: center; align-items: center; gap: 20px; min-height: 100px; flex-wrap: wrap; }
+        .scroll-text {
+            color: #d63384;
+            font-weight: bold;
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
 
-        .btn { padding: 15px 35px; font-size: 1.2rem; border: none; border-radius: 60px; cursor: pointer; font-weight: bold; display: inline-block; -webkit-tap-highlight-color: transparent; }
+        /* the valentine box */
+        .valentine-box {
+            background-color: #ffffff;
+            width: 85%;
+            max-width: 450px;
+            margin: 0 auto 150px auto;
+            padding: 50px 20px;
+            border-radius: 30px;
+            box-shadow: 0px 15px 30px rgba(0,0,0,0.1);
+            min-height: 350px;
+        }
 
-        #yes-btn { background-color: #20c997; color: white; }
+        /* headers */
+        h1 {
+            color: #d63384;
+            font-size: 24px;
+            margin-bottom: 30px;
+        }
 
-        #no-btn { background-color: #dc3545; color: white; transition: left 2.5s ease-out, top 2.5s ease-out; position: relative; z-index: 100; }
+        /* buttons */
+        .button-area {
+            display: block;
+            margin-top: 20px;
+        }
 
-        #reset-btn { background-color: #6c757d; color: white; margin-top: 20px; }
+        .my-button {
+            display: inline-block;
+            padding: 18px 40px;
+            margin: 10px;
+            font-size: 20px;
+            font-weight: bold;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            color: #ffffff;
+            text-decoration: none;
+        }
 
-        .hidden { display: none; }
+        #green-yes { background-color: #28a745; }
+        #red-no { background-color: #dc3545; }
 
-        .from-don { position: fixed; bottom: 20px; right: 20px; color: #d63384; font-weight: bold; font-size: 0.9rem; z-index: 5; }
+        /* pages */
+        .page { display: block; }
+        .is-hidden { display: none; }
 
-        .emoji { font-size: 4rem; margin-bottom: 20px; display: block; }
+        .big-emoji {
+            font-size: 70px;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .signature {
+            margin-top: 30px;
+            color: #d63384;
+            font-weight: bold;
+            font-size: 14px;
+        }
 
     </style>
-
 </head>
-
 <body>
 
+    <div class="main-wrapper">
 
+        <div class="letter-box">
+            <p>to elaisah,</p>
+            <p>i want to write this while all the memories of our first meeting are still fresh in my head. it’s funny how mandatory school events can turn into important moments in your life, and in my case, that’s how i met you.</p>
+            <p>i know that we have not known each other for long, but i am pretty sure you have had a bigger impact on me than you might think. coming from our lady of hope, you truly live up to your name. i know you showed me a lot of compassion when i was struggling, and that not all of that was easy to do. i really appreciate the fact that you were able to show me what kind of person you are.</p>
+            <p>it’s still early days for us, but from what i have seen, you have the raw materials to become amazing. i really am thankful we met on the retreat and i am hopeful for the moments we will share.</p>
+            <p>take care,</p>
+            <p>don <3</p>
+        </div>
 
-    <div id="card">
+        <div class="spacer">
+            <div class="scroll-text">keep scrolling... ↓</div>
+        </div>
 
-        <div id="q-section">
-
-            <h1>elaisah will you be my valentine?</h1>
-
-            <div class="btn-container">
-
-                <button id="yes-btn" class="btn" onclick="showPage('yay')">yes</button>
-
-                <button id="no-btn" class="btn" onmouseover="moveNo()" ontouchstart="moveNo()" onclick="showPage('aww')">no</button>
-
+        <div class="valentine-box">
+            
+            <div id="screen-question" class="page">
+                <h1>elaisah, will you be my valentine?</h1>
+                <div class="button-area">
+                    <button class="my-button" id="green-yes" onclick="showYesPage()">yes</button>
+                    <button class="my-button" id="red-no" onclick="showNoPage()">no</button>
+                </div>
             </div>
 
-        </div>
+            <div id="screen-yes" class="page is-hidden">
+                <span class="big-emoji">❤️</span>
+                <h1>thaaaaank you!!!!</h1>
+                <p>you just made me the luckiest guy.😁😁  i'm so happy you said yes, elaisah! :)</p>
+            </div>
 
+            <div id="screen-no" class="page is-hidden">
+                <span class="big-emoji">💔</span>
+                <h1>aww, it's okay!</h1>
+                <p>i still think you're an amazing person and i'm glad we met at the retreat. no hard feelings! :)</p>
+                <button class="my-button" style="background-color: #6c757d; font-size: 14px;" onclick="location.reload()">back to top</button>
+            </div>
 
-
-        <div id="yay-section" class="hidden">
-
-            <span class="emoji">❤️</span>
-
-            <h1>thaaaaank you!!!!</h1>
-
-        </div>
-
-
-
-        <div id="aww-section" class="hidden">
-
-            <span class="emoji">💔</span>
-
-            <h1>aww i was hoping you would say yes</h1>
-
-            <button id="reset-btn" class="btn" onclick="resetPage()">one more?</button>
+            <div class="signature">(from don <3)</div>
 
         </div>
 
     </div>
 
-
-
-    <div class="from-don">(from don &lt;3)</div>
-
-
-
     <script>
-
-        // These are the sound files turned into text so they can't be "blocked"
-
-        const yaySound = new Audio("data:audio/wav;base64,UklGRjIAAABXQVZFZm10IBAAAAABAAEAIlYAACJWAAABAAgAZGF0YRAAAAB8fHx8fHx8fHx8fHx8fHx8"); 
-
-        const awwSound = new Audio("data:audio/wav;base64,UklGRjIAAABXQVZFZm10IBAAAAABAAEAIlYAACJWAAABAAgAZGF0YRAAAAB8fHx8fHx8fHx8fHx8fHx8");
-
-
-
-        // NOTE: Standard WAV generators are tiny. 
-
-        // I have set up a fallback system below that uses the browser's 
-
-        // internal "Beep" system if the file fails to load.
-
-
-
-        const noBtn = document.getElementById('no-btn');
-
-        let hasMoved = false;
-
-
-
-        function moveNo() {
-
-            if (!hasMoved) {
-
-                const rect = noBtn.getBoundingClientRect();
-
-                noBtn.style.left = rect.left + 'px';
-
-                noBtn.style.top = rect.top + 'px';
-
-                noBtn.style.position = 'fixed';
-
-                hasMoved = true;
-
-            }
-
-            const padding = 60;
-
-            const maxX = window.innerWidth - noBtn.offsetWidth - padding;
-
-            const maxY = window.innerHeight - noBtn.offsetHeight - padding;
-
-            noBtn.style.left = Math.max(padding, Math.random() * maxX) + 'px';
-
-            noBtn.style.top = Math.max(padding, Math.random() * maxY) + 'px';
-
+        function showYesPage() {
+            // hide question
+            document.getElementById('screen-question').style.display = 'none';
+            // show yes page
+            document.getElementById('screen-yes').style.display = 'block';
         }
 
-
-
-        function playSound(type) {
-
-            const context = new (window.AudioContext || window.webkitAudioContext)();
-
-            const osc = context.createOscillator();
-
-            const gain = context.createGain();
-
-            
-
-            osc.connect(gain);
-
-            gain.connect(context.destination);
-
-
-
-            if (type === 'yay') {
-
-                // Happy high-pitched double beep
-
-                osc.type = 'sine';
-
-                osc.frequency.setValueAtTime(523.25, context.currentTime); // C5
-
-                osc.frequency.exponentialRampToValueAtTime(880, context.currentTime + 0.1); // A5
-
-                gain.gain.setValueAtTime(0.1, context.currentTime);
-
-                gain.gain.exponentialRampToValueAtTime(0.01, context.currentTime + 0.3);
-
-            } else {
-
-                // Sad low-pitched sliding tone
-
-                osc.type = 'triangle';
-
-                osc.frequency.setValueAtTime(392.00, context.currentTime); // G4
-
-                osc.frequency.exponentialRampToValueAtTime(196.00, context.currentTime + 0.5); // G3
-
-                gain.gain.setValueAtTime(0.1, context.currentTime);
-
-                gain.gain.exponentialRampToValueAtTime(0.01, context.currentTime + 0.5);
-
-            }
-
-
-
-            osc.start();
-
-            osc.stop(context.currentTime + 0.5);
-
+        function showNoPage() {
+            // hide question
+            document.getElementById('screen-question').style.display = 'none';
+            // show no page
+            document.getElementById('screen-no').style.display = 'block';
         }
-
-
-
-        function showPage(pageId) {
-
-            playSound(pageId); // This uses the internal browser audio system
-
-            document.getElementById('q-section').classList.add('hidden');
-
-            document.getElementById('yay-section').classList.add('hidden');
-
-            document.getElementById('aww-section').classList.add('hidden');
-
-            document.getElementById(pageId + '-section').classList.remove('hidden');
-
-            noBtn.style.display = 'none';
-
-        }
-
-
-
-        function resetPage() {
-
-            hasMoved = false;
-
-            document.getElementById('aww-section').classList.add('hidden');
-
-            document.getElementById('q-section').classList.remove('hidden');
-
-            noBtn.style.display = 'inline-block';
-
-            noBtn.style.position = 'relative';
-
-            noBtn.style.left = 'auto';
-
-            noBtn.style.top = 'auto';
-
-        }
-
     </script>
 
 </body>
-
 </html>
